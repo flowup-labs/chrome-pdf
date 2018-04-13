@@ -20,7 +20,7 @@ app.post('/', (req, res) => {
     htmlPdf
         .create(req.body, options)
         .then((pdf) => {
-            res.send(pdf.toBuffer())
+            res.type('pdf').send(pdf.toBuffer())
         })
         .catch((err) => {
             res.status(500).send(err)
